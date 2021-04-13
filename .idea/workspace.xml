@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0338d150-2a6e-439a-a18c-abc50853e3f5" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1r0p8WsLbywqpNYA7h33OvYSXTd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../musicClient" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\software\Idea\IntelliJ IDEA 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="npm install" />
+      <command value="npm run dev" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0338d150-2a6e-439a-a18c-abc50853e3f5" name="默认更改列表" comment="" />
+      <created>1618122702344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618122702344</updated>
+      <workItem from="1618122705315" duration="7308000" />
+      <workItem from="1618141872739" duration="221000" />
+      <workItem from="1618142108323" duration="4072000" />
+      <workItem from="1618153724915" duration="2117000" />
+      <workItem from="1618232196212" duration="2652000" />
+      <workItem from="1618234965950" duration="13001000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="872" y="358" key="#ESLint" timestamp="1618122989488">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="358" key="#ESLint/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618122989488" />
+    <state x="872" y="358" key="#Notifications" timestamp="1618142187677">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="358" key="#Notifications/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618142187677" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1618233733922">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="455" key="FileChooserDialogImpl/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618233733922" />
+    <state width="2517" height="264" key="GridCell.Tab.0.bottom" timestamp="1618271269638">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="264" key="GridCell.Tab.0.bottom/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618271269638" />
+    <state width="2517" height="264" key="GridCell.Tab.0.center" timestamp="1618271269638">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="264" key="GridCell.Tab.0.center/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618271269638" />
+    <state width="2517" height="264" key="GridCell.Tab.0.left" timestamp="1618271269638">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="264" key="GridCell.Tab.0.left/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618271269638" />
+    <state width="2517" height="264" key="GridCell.Tab.0.right" timestamp="1618271269638">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="264" key="GridCell.Tab.0.right/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618271269638" />
+    <state x="936" y="330" width="672" height="677" key="run.anything.popup" timestamp="1618232667747">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="936" y="330" width="672" height="677" key="run.anything.popup/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618232667747" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1618241315102">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618241315102" />
+  </component>
+</project>

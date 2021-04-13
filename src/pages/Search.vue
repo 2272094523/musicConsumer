@@ -32,11 +32,7 @@
     },
     created() {
       this.lists=this.$route.query.list2;
-      console.log("search-list")
-      console.log(this.lists)
     }
-
-
   }
 </script>
 

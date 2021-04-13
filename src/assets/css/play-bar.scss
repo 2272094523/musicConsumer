@@ -56,9 +56,9 @@
     .playing-speed {
       // 进度条
       height: 50px;
-      width: 600px;
+      width: 900px;
       @include layout(center, center);
-
+s
       .current-time,
       .left-time {
         width: 70px;

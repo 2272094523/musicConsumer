@@ -22,8 +22,6 @@
     props:['lists'],
     created() {
       this.list=this.lists;
-      console.log("song-list")
-      console.log(this.list)
     }
   }
 </script>

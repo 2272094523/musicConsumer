@@ -65,13 +65,17 @@
               type:"info",
               message:"暂无符合条件的歌曲"
             });
-            this.$bus.$emit("getList",'')
+            this.list=[];
           }else{
             this.list=res.data.data;
           }
         }).finally(()=>{
           this.$bus.$emit("getList",this.list)
-          let list2=this.list
+          let list2=this.list;
+          this.$store.commit('setIsPlay',false);
+          this.$store.commit('setUrl','');
+          this.$store.commit('setId','');
+
           this.$router.push({path:'/search',query:{list2}});
         })
       }

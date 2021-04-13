@@ -13,7 +13,8 @@
         </div>
       </li>
       <li v-for="(item,index) in lists" :key="index">
-        <div class="song-item">
+        <div class="song-item"
+             @click="toPlay(item.songId,item.songUrl,item.songImg,index+1,item.songName,item.singer.singerName,item.songLyric)">
           <span class="item-index">{{index+1}}</span>
           <span class="item-title">{{item.songName}}</span>
           <span class="item-name">{{item.singer.singerName}}</span>
@@ -35,6 +36,7 @@
     data() {
       return {
         lists: [],
+        flag: true,
       }
     },
     props: ['list2'],
@@ -45,6 +47,9 @@
     },
     created() {
       this.lists = this.list2;
+      if (this.lists == '') {
+        this.flag = false;
+      }
     }
 
   }

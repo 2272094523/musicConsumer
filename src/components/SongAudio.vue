@@ -16,7 +16,7 @@
         this.$store.commit("setDuration",player.duration);
         //开始播放
         player.play()
-        this.$store.commit("isPlay",true);
+        this.$store.commit("setIsPlay",true);
       },
       //结束播放
       ended() {

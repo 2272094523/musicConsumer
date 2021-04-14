@@ -16,7 +16,7 @@ const song = {
     autoNext:true,//自动播放下一首
     lyric:[],//未处理的歌词
     tempList:[],//单个歌单信息.
-    listIndex:null,//当前歌曲在歌单中的位置
+    listIndex:-1,//当前歌曲在歌单中的位置
     volume:50,//音量
   },
   getters: {

@@ -4,6 +4,7 @@
     <router-view class="music-content"/>
     <scroll-top/>
     <song-audio></song-audio>
+    <the-aside></the-aside>
     <play-bar/>
     <the-footer/>
   </div>
@@ -15,8 +16,10 @@ import ScrollTop from './components/ScrollTop';
 import TheFooter from './components/TheFooter';
 import SongAudio from "./components/SongAudio";
 import PlayBar from "./components/PlayBar"
-
+import TheAside from "./components/TheAside";
+import {mapGetters} from 'vuex'
 export default {
+
   name: 'App',
   components: {
     TheHeader,
@@ -24,7 +27,13 @@ export default {
     TheFooter,
     SongAudio,
     PlayBar,
+    TheAside,
+  },
+  created() {
+    this.$store.commit('setShowAside',false);
   }
+
+
 }
 </script>
 

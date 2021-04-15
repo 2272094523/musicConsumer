@@ -20,7 +20,7 @@
         </svg>
       </div>
       <!--      歌曲图片-->
-      <div class="item-img">
+      <div class="item-img" @click="showLyric">
         <img :src="imgUrl"/>
       </div>
       <div class="playing-speed">
@@ -96,7 +96,7 @@
       }
     },
     computed: {
-      ...mapGetters(['isPlay', 'id', 'url', 'playButtonUrl', 'imgUrl', 'title', 'artist', 'duration', 'curTime','showAside','listIndex','songOfList'])
+      ...mapGetters(['isPlay', 'id', 'url', 'playButtonUrl', 'imgUrl', 'title', 'artist', 'duration', 'curTime','showAside','listIndex','songOfList','autoNext'])
     },
     methods: {
       //控制音乐播放暂停
@@ -227,15 +227,18 @@
       },
       toPlay(songOfList, listIndex){
         let type=songOfList[listIndex];
-        this.$store.commit('setId',type.songId);
-        this.$store.commit('setUrl',type.songUrl);
-        this.$store.commit('setImgUrl',type.songImg);
-        this.$store.commit('setListIndex',listIndex);
-        this.$store.commit('setTitle',type.songName);
-        this.$store.commit('setArtist',type.singerName);
-        this.$store.commit('setLyric',type.songLyric);
-        this.$store.commit('setPlayButtonUrl','#icon-zanting');
-      }
+        this.storeCommit(type.songId,type.songUrl,type.songName,'#icon-zanting',true,listIndex,type.singerName,type.songImg,this.parseLyric(type.songLyric));
+      },
+      autoPlay(){
+        if (this.songOfList.length==1){
+          this.toPlay(this.songOfList,this.listIndex);
+        }else{
+          this.nextSong();
+        }
+      },
+      showLyric(){
+        this.$router.push({path:'/lyric',lyric:this.lyric})
+      },
     },
     mounted() {
       this.progressLength = this.$refs.progress.getBoundingClientRect().width;
@@ -252,13 +255,7 @@
 
     },
     created() {
-      this.$store.commit("setIsPlay", false)
-      this.$store.commit("setUrl", '')
-      this.$store.commit("setId", '');
-      this.$store.commit('setImgUrl', '');
-      this.$store.commit('setTitle', '');
-      this.$store.commit('setArtist', '');
-      this.$store.commit('setPlayButtonUrl', '#icon-bofang');
+      this.storeCommit('','','','#icon-bofang',false,-1,'','','');
     },
     watch: {
       //记录当前播放进度，以及更改歌曲时间。
@@ -270,6 +267,9 @@
       //音量变化
       volume() {
         this.$store.commit('setVolume', this.volume / 100);
+      },
+      autoNext(){
+        this.autoPlay();
       }
     }
   }

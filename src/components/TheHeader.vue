@@ -38,7 +38,8 @@
     },
     computed:{
       ...mapGetters([
-        'activeName'
+        'activeName',
+        'selName'
       ])
     },
     methods: {
@@ -72,10 +73,7 @@
         }).finally(()=>{
           this.$bus.$emit("getList",this.list)
           let list2=this.list;
-          this.$store.commit('setIsPlay',false);
-          this.$store.commit('setUrl','');
-          this.$store.commit('setId','');
-
+          this.$store.commit('setSelName',this.keyWords);
           this.$router.push({path:'/search',query:{list2}});
         })
       }

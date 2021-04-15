@@ -49,7 +49,7 @@
         'curTime',
         'changeTime',
         'autoNext',
-        'volume',//y音量
+        'volume',
       ])
     },
     watch: {

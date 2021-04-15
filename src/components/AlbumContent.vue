@@ -29,6 +29,7 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mixin} from "../mixins";
+  import {fuzzySelectSong} from "../api";
 
   export default {
     name: "AlbumContent",
@@ -44,15 +45,19 @@
       this.$bus.$on('getList', msg => {
         this.lists = msg;
       })
+      if (this.lists == '') {
+        console.log(this.selName)
+        fuzzySelectSong(this.selName).then(res=>{
+          this.lists=res.data.data;
+        })
+      }
     },
     created() {
       this.lists = this.list2;
-      if (this.lists == '') {
-        this.flag = false;
-      }
+
     },
     computed:{
-      ...mapGetters(['songOfList','id','isPlay'])
+      ...mapGetters(['songOfList','id','isPlay','selName'])
     },
     methods:{
       toPlay:function(id,url,img,index,title,artist,lyric){

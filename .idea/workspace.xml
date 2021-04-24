@@ -3,14 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="0338d150-2a6e-439a-a18c-abc50853e3f5" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/css/sign-up.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/sign-up.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/data/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/data/form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/data/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/data/header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AlbumContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AlbumContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ContentList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContentList.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PlayBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlayBar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SongAudio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongAudio.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TheAside.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheAside.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TheHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TheHeader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mixins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mixins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Lyric.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Lyric.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/configure.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/configure.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/song.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/user.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +58,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\software\Idea\IntelliJ IDEA 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -99,6 +109,9 @@
       <workItem from="1618403887922" duration="9560000" />
       <workItem from="1618414251450" duration="2623000" />
       <workItem from="1618496148688" duration="5248000" />
+      <workItem from="1619094505947" duration="25735000" />
+      <workItem from="1619252423674" duration="1076000" />
+      <workItem from="1619253621643" duration="6908000" />
     </task>
     <servers />
   </component>
@@ -118,29 +131,33 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="455" key="FileChooserDialogImpl/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618233733922" />
-    <state width="2517" height="264" key="GridCell.Tab.0.bottom" timestamp="1618502718874">
+    <state width="2517" height="319" key="GridCell.Tab.0.bottom" timestamp="1619252415905">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="264" key="GridCell.Tab.0.bottom/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618502718874" />
-    <state width="2517" height="264" key="GridCell.Tab.0.center" timestamp="1618502718874">
+    <state width="2517" height="319" key="GridCell.Tab.0.bottom/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1619252415905" />
+    <state width="2517" height="319" key="GridCell.Tab.0.center" timestamp="1619252415905">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="264" key="GridCell.Tab.0.center/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618502718874" />
-    <state width="2517" height="264" key="GridCell.Tab.0.left" timestamp="1618502718874">
+    <state width="2517" height="319" key="GridCell.Tab.0.center/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1619252415905" />
+    <state width="2517" height="319" key="GridCell.Tab.0.left" timestamp="1619252415905">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="264" key="GridCell.Tab.0.left/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618502718874" />
-    <state width="2517" height="264" key="GridCell.Tab.0.right" timestamp="1618502718874">
+    <state width="2517" height="319" key="GridCell.Tab.0.left/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1619252415905" />
+    <state width="2517" height="319" key="GridCell.Tab.0.right" timestamp="1619252415905">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="264" key="GridCell.Tab.0.right/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618502718874" />
+    <state width="2517" height="319" key="GridCell.Tab.0.right/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1619252415905" />
+    <state x="781" y="342" key="SettingsEditor" timestamp="1619253518616">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="781" y="342" key="SettingsEditor/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1619253518616" />
     <state x="936" y="330" width="672" height="677" key="run.anything.popup" timestamp="1618232667747">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="936" y="330" width="672" height="677" key="run.anything.popup/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618232667747" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1618501512266">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1619106324898">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1618501512266" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/2560.350.1920.1040/0.0.2560.1400/-1920.335.1920.1040@0.0.2560.1400" timestamp="1619106324898" />
   </component>
 </project>

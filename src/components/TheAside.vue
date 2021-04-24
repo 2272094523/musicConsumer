@@ -18,10 +18,13 @@
 </template>
 
 <script>
+  import {mixin} from "../mixins";
   import {mapGetters} from 'vuex'
+
 
   export default {
     name: "TheAside",
+    mixins:[mixin],
     computed: {
       ...mapGetters(['showAside', 'songOfList', 'id', 'isPlay', 'title', 'artist', 'playButtonUrl', 'lyric', 'imgUrl', 'listIndex'])
     },

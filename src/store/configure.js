@@ -4,7 +4,6 @@ const configure = {
     activeName: '', //当前选中的菜单名,
     showAside:false,
     songOfList:[],
-    selName:'',
   },
   getters: {
     activeName: state => {
@@ -31,19 +30,11 @@ const configure = {
       }
       return songOfList
     },
-    selName:state=>{
-      let selName=state.selName;
-      if (selName=='') {
-        //如果没有的话，就从sessionStorage中获取。
-        selName = JSON.parse(window.sessionStorage.getItem('selName'))
-      }
-      return selName
-    }
 
   },
   mutations: {
     setActiveName: (state, activeName) => {
-      state.activeName = activeName
+      state.activeName = activeName;
       window.sessionStorage.setItem('activeName', JSON.stringify(activeName))
     },
     setShowAside: (state,showAside) => {
@@ -54,10 +45,7 @@ const configure = {
       state.songOfList=songOfList;
       window.sessionStorage.setItem('songOfList', JSON.stringify(songOfList))
     },
-    setSelName:(state,selName)=>{
-      state.selName=selName;
-      window.sessionStorage.setItem('selName', JSON.stringify(selName))
-    }
+
   }
 }
 

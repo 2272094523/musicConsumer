@@ -1,4 +1,5 @@
 import {get,post} from "./http";
+import Axios from "axios";
 
 //============歌手相关================
 //查询歌手
@@ -25,3 +26,20 @@ export const listSongDetail = (songListId) => get(`listsong/selectSongOfListSong
 //============用户相关================
 //查询用户
 export const getAllConsumer =() => get(`consumer/selectAll`);
+
+
+//获取邮箱验证码
+export const getCode=(param)=>get(`consumer/getEmailCode?consumerEmail=${param}`)
+
+
+//注册用户
+export const SignUp=(param)=>post('consumer/insert',param)
+
+//登录
+export const Login=(param)=>post('consumer/login',param)
+
+export const downLoadMusic=(url)=>Axios({
+  method:'get',
+  url:url,
+  responseType:'blob'
+})

@@ -33,7 +33,7 @@
             //只获取前10条歌单
             this.list1 = res.data.data.slice(0, 10);
             for (let item of this.list1){
-              let type={name:item.songListTitle,img:item.songListImg};
+              let type={name:item.songListTitle,img:item.songListImg,id:item.songListId,type:1,introduction:item.songListIntroduction};
               this.songsList[1].list.push(type);
             }
           }
@@ -46,7 +46,7 @@
           if (res.data.code == 200) {
             this.list2=res.data.data.slice(0, 10);
             for (let item of this.list2){
-              let type={name:item.singerName,img:item.singerImg};
+              let type={id:item.singerId,name:item.singerName,img:item.singerImg,type:0,introduction:item.singerIntroduction};
               this.songsList[0].list.push(type);
             }
           }

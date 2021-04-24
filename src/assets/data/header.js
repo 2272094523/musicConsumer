@@ -1,11 +1,20 @@
-//导航栏
+//左侧导航栏
 const navMsg = [
     {name: '首页',path: '/'},
     {name: '歌单',path: '/song-list'},
     {name: '歌手',path: '/singer'},
     {name: '我的音乐',path: '/my-music'}
 ]
+//右侧导航狼
+const loginMsg = [
+  {name: '登录',path: '/login'},
+  {name: '注册',path: '/sign-up'},
+]
 
+const menuList = [
+  {name: '个人中心',path: '/setting'},
+  {name: '退出',path: 0},
+]
 export {
-    navMsg
+    navMsg,loginMsg,menuList
 }

@@ -1,5 +1,10 @@
 <template>
-  <div class="play-bar">
+  <div class="play-bar" :class="{show:!toggle}">
+    <div @click="toggle=!toggle" class="item-up" :class="{turn:toggle}">
+      <svg class="icon">
+        <use xlink:href="#icon-jiantou-xia-cuxiantiao"></use>
+      </svg>
+    </div>
     <div class="kongjian">
       <!--      上一首-->
       <div class="item" @click="prevSong">
@@ -61,7 +66,7 @@
           </svg>
         </div>
         <!--        下载-->
-        <div class="item">
+        <div class="item" @click="download">
           <svg class="icon">
             <use xlink:href="#icon-xiazai"></use>
           </svg>
@@ -80,6 +85,7 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mixin} from "../mixins";
+  import {downLoadMusic} from "../api";
 
   export default {
     name: "PlayBar",
@@ -92,7 +98,8 @@
         progressLength: 0,//总进度条位置
         mouseStartX: 0,//拖拽开始位置
         tag: false,//拖拽开始结束的标志，当开始拖拽才会变成true,
-        volume: 50,//默认音量50
+        volume: 50,//默认音量50,
+        toggle:true,
       }
     },
     computed: {
@@ -189,9 +196,7 @@
         }
       },
       changeAside(){
-        console.log(this.showAside);
         this.$store.commit('setShowAside',!this.showAside);
-
       },
       prevSong(){
         if (this.listIndex!=-1&&this.songOfList.length>1){
@@ -239,6 +244,29 @@
       showLyric(){
         this.$router.push({path:'/lyric',lyric:this.lyric})
       },
+      download(){
+        if (this.songOfList.length==0){
+          this.$message({
+            showClose:true,
+            message:"当前暂无播放的歌曲",
+            type:'error'
+          })
+          return;
+        }
+        downLoadMusic(this.url).then(res=>{
+          let content=res.data;
+          let eleLink=document.createElement('a');
+          eleLink.download=`${this.artist}+' - '+${this.title}`;
+          eleLink.style.display='none';
+          let blob=new Blob([content]);
+          eleLink.href=URL.createObjectURL(blob);
+          document.body.appendChild(eleLink);
+          eleLink.click();
+          document.body.removeChild(eleLink);
+        }).catch(err=>{
+          this.$message.error('下载失败。服务器错误');
+        })
+      }
     },
     mounted() {
       this.progressLength = this.$refs.progress.getBoundingClientRect().width;

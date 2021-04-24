@@ -2,6 +2,7 @@
   <div class="content">
     <h1 class="title">
       <slot name="title"></slot>
+      <hr/>
     </h1>
     <ul>
       <li>
@@ -45,19 +46,12 @@
       this.$bus.$on('getList', msg => {
         this.lists = msg;
       })
-      if (this.lists == '') {
-        console.log(this.selName)
-        fuzzySelectSong(this.selName).then(res=>{
-          this.lists=res.data.data;
-        })
-      }
     },
     created() {
       this.lists = this.list2;
-
     },
     computed:{
-      ...mapGetters(['songOfList','id','isPlay','selName'])
+      ...mapGetters(['songOfList','id','isPlay','selList'])
     },
     methods:{
       toPlay:function(id,url,img,index,title,artist,lyric){
@@ -76,7 +70,7 @@
         this.$store.commit('setListIndex',index);
         this.$store.commit('setTitle',title);
         this.$store.commit('setArtist',artist);
-        this.$store.commit('setLyric',lyric);
+        this.$store.commit('setLyric',this.parseLyric(lyric));
         this.$store.commit('setPlayButtonUrl','#icon-zanting');
         let tempList=[];
         let flag=false;
@@ -92,7 +86,6 @@
           tempList.push(type);
           this.$store.commit('setSongOfList',tempList);
         }
-        console.log(this.songOfList);
       }
     }
 

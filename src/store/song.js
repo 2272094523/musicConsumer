@@ -15,11 +15,19 @@ const song = {
     imgUrl:'',//歌曲图片
     autoNext:true,//自动播放下一首
     lyric:[],//未处理的歌词
-    tempList:[],//单个歌单信息.
+    tempList:'',//单个歌单信息或者歌手的信息
     listIndex:-1,//当前歌曲在歌单中的位置
-    volume:50,//音量
+    volume:50,//音量,
+    selList:[],
   },
   getters: {
+    selList:state => {
+      let selList=state.selList;
+      if (!selList){
+        selList=JSON.parse(window.sessionStorage.getItem('selList')||false)
+      }
+      return selList;
+    },
     isPlay: state => {
       let isPlay=state.isPlay;
       if (!isPlay){
@@ -128,7 +136,10 @@ const song = {
 
   },
   mutations: {
-
+    setSelList:(state, selList) => {
+      state.selList = selList;
+      window.sessionStorage.setItem('selList',JSON.stringify(selList));
+    },
     setIsPlay: (state, isPlay) => {
       state.isPlay = isPlay;
       window.sessionStorage.setItem('isPlay',JSON.stringify(isPlay));

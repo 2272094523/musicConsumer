@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import {Login} from "../api";
+  import {Login,selectCollectSong,selectCollectSongList} from "../api";
   import Logo from "../components/Logo";
   import {mapGetters} from 'vuex'
 
@@ -46,7 +46,7 @@
       }
     },
     computed:{
-      ...mapGetters(['loginFlag','curConsumer'])
+      ...mapGetters(['loginFlag','curConsumer','collectSong','collectSongList','id'])
     },
     methods: {
       goBack(index) {
@@ -64,7 +64,30 @@
                 this.$message.success("登录成功");
                 this.$store.commit('setLoginFlag',true);
                 this.$store.commit('setCurConsumer',res.data.data);
-                this.$store.commit('setActiveName','首页')
+                this.$store.commit('setActiveName','首页');
+                selectCollectSong(this.curConsumer.consumerId).then(res=>{
+                  if (res.data.code==200){
+                    this.$store.commit('setCollectSong',res.data.data);
+                    if (this.id!=''){
+                      for(let item of res.data.data){
+                        if (this.id==item.songId){
+                          this.$store.commit('setCollectActive',true);
+                          break;
+                        }
+                      }
+                    }
+                  }
+                })
+                selectCollectSongList(this.curConsumer.consumerId).then(res=>{
+                  if (res.data.code==200){
+                    let tempList=[];
+                    for (let item of res.data.data){
+                      let type={name:item.songListTitle,img:item.songListImg,id:item.songListId,type:1,introduction:item.songListIntroduction,style:item.songListStyle};
+                      tempList.push(type);
+                    }
+                    this.$store.commit("setCollectSongList",tempList);
+                  }
+                })
                 this.$router.push({path:'/'});
               }else{
                 this.$message({showClose: true, type: 'error', message: res.data.msg});

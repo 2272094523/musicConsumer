@@ -60,8 +60,8 @@
           <el-slider class="volume" v-model="volume" :vertical="true"></el-slider>
         </div>
         <!--        收藏-->
-        <div class="item">
-          <svg class="icon">
+        <div class="item" @click="setCollect">
+          <svg class="icon" :class="{active:collectActive}">
             <use xlink:href="#icon-xihuan-shi"></use>
           </svg>
         </div>
@@ -85,7 +85,7 @@
 <script>
   import {mapGetters} from 'vuex'
   import {mixin} from "../mixins";
-  import {downLoadMusic} from "../api";
+  import {deleteCollect, downLoadMusic, insertCollect, selectCollectSong} from "../api";
 
   export default {
     name: "PlayBar",
@@ -103,7 +103,7 @@
       }
     },
     computed: {
-      ...mapGetters(['isPlay', 'id', 'url', 'playButtonUrl', 'imgUrl', 'title', 'artist', 'duration', 'curTime','showAside','listIndex','songOfList','autoNext'])
+      ...mapGetters(['isPlay', 'id', 'url', 'playButtonUrl', 'imgUrl', 'title', 'artist', 'duration', 'curTime','showAside','listIndex','songOfList','autoNext','collectActive','loginFlag','curConsumer','collectSong'])
     },
     methods: {
       //控制音乐播放暂停
@@ -230,8 +230,56 @@
           })
         }
       },
+      setCollect(){
+        if (this.id==''){
+          this.$message.info("当前播放的歌曲为空，无法收藏");
+          return;
+        }
+        if (!this.loginFlag){
+          this.$message.info("请先登录")
+          return;
+        }
+        if (!this.collectActive){
+          let params=new URLSearchParams();
+          params.append("collectType",0);
+          params.append('consumer.consumerId',this.curConsumer.consumerId);
+          params.append('collectBeCollectId',this.id);
+          insertCollect(params).then(res=>{
+            if (res.data.code==200){
+              this.$message.success("收藏成功")
+              selectCollectSong(this.curConsumer.consumerId).then(res=>{
+                this.$store.commit('setCollectSong',res.data.data);
+              })
+              this.$store.commit("setCollectActive",true);
+            }
+          });
+        }else{
+          let params=new URLSearchParams();
+          params.append("collectType",0);
+          params.append('consumer.consumerId',this.curConsumer.consumerId);
+          params.append('collectBeCollectId',this.id);
+          deleteCollect(params).then(res=>{
+            if (res.data.code==200){
+              this.$message.success("取消收藏");
+              selectCollectSong(this.curConsumer.consumerId).then(res=>{
+                this.$store.commit('setCollectSong',res.data.data);
+              })
+              this.$store.commit("setCollectActive",false);
+            }
+          })
+        }
+      },
       toPlay(songOfList, listIndex){
         let type=songOfList[listIndex];
+        let flag=false;
+        for (let item of this.collectSong){
+          if (type.songId==item.songId){
+            this.$store.commit('setCollectActive',true);
+            flag=true;
+            break;
+          }
+        }
+        if (flag==false) this.$store.commit('setCollectActive',false);
         this.storeCommit(type.songId,type.songUrl,type.songName,'#icon-zanting',true,listIndex,type.singerName,type.songImg,this.parseLyric(type.songLyric));
       },
       autoPlay(){
@@ -256,7 +304,7 @@
         downLoadMusic(this.url).then(res=>{
           let content=res.data;
           let eleLink=document.createElement('a');
-          eleLink.download=`${this.artist}+' - '+${this.title}`;
+          eleLink.download=`${this.artist}' - '${this.title}`;
           eleLink.style.display='none';
           let blob=new Blob([content]);
           eleLink.href=URL.createObjectURL(blob);

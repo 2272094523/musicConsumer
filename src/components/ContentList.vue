@@ -12,7 +12,6 @@
         </div>
         <span class="item-name">{{item.name}}</span>
       </li>
-
     </ul>
   </div>
 </template>
@@ -26,8 +25,6 @@
     props:['contentList'],
     methods:{
       goAlbum(item,type){
-        console.log(item)
-        console.log(type)
         this.$store.commit("setTempList",item);
         if (type==0){
           this.$router.push({path:'singer-album',query:{item}})
@@ -39,9 +36,10 @@
     },
     computed:{
       ...mapGetters(['activeName'])
+    },
+    created() {
+      console.log(this.contentList);
     }
-
-
   }
 </script>
 <style lang="scss" scoped>

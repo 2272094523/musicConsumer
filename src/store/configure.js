@@ -4,6 +4,10 @@ const configure = {
     activeName: '', //当前选中的菜单名,
     showAside:false,
     songOfList:[],
+    keyWords: '',
+    collectActive:false,
+    collectSong:[],
+    collectSongList:[],
   },
   getters: {
     activeName: state => {
@@ -14,6 +18,32 @@ const configure = {
       }
       return activeName
     },
+    collectSong: state => {
+      let collectSong = state.collectSong
+      if (!collectSong) {
+        //如果没有的话，就从sessionStorage中获取。
+        collectSong = JSON.parse(window.sessionStorage.getItem('collectSong'))
+      }
+      return collectSong
+    },
+    collectSongList: state => {
+      let collectSongList = state.collectSongList
+      if (!collectSongList) {
+        //如果没有的话，就从sessionStorage中获取。
+        collectSongList = JSON.parse(window.sessionStorage.getItem('collectSongList'))
+      }
+      return collectSongList
+    },
+
+    collectActive: state => {
+      let collectActive = state.collectActive
+      if (!collectActive) {
+        //如果没有的话，就从sessionStorage中获取。
+        collectActive = JSON.parse(window.sessionStorage.getItem('collectActive'))
+      }
+      return collectActive
+    },
+
     showAside:state=>{
       let showAside=state.showAside;
       if (!showAside) {
@@ -30,12 +60,28 @@ const configure = {
       }
       return songOfList
     },
+    keyWords: state=>{
+      let keyWords=state.keyWords;
+      if (keyWords=='') {
+        //如果没有的话，就从sessionStorage中获取。
+        keyWords = JSON.parse(window.sessionStorage.getItem('keyWords'))
+      }
+      return keyWords
+    },
 
   },
   mutations: {
     setActiveName: (state, activeName) => {
       state.activeName = activeName;
       window.sessionStorage.setItem('activeName', JSON.stringify(activeName))
+    },
+    setCollectSong: (state, collectSong) => {
+      state.collectSong = collectSong;
+      window.sessionStorage.setItem('collectSong', JSON.stringify(collectSong))
+    },
+    setCollectSongList: (state, collectSongList) => {
+      state.collectSongList = collectSongList;
+      window.sessionStorage.setItem('collectSongList', JSON.stringify(collectSongList))
     },
     setShowAside: (state,showAside) => {
       state.showAside=showAside;
@@ -45,7 +91,14 @@ const configure = {
       state.songOfList=songOfList;
       window.sessionStorage.setItem('songOfList', JSON.stringify(songOfList))
     },
-
+    setKeyWords:(state,keyWords)=>{
+      state.keyWords=keyWords;
+      window.sessionStorage.setItem('keyWords',JSON.stringify(keyWords));
+    },
+    setCollectActive:(state,collectActive)=>{
+      state.collectActive=collectActive;
+      window.sessionStorage.setItem('collectActive',JSON.stringify(collectActive));
+    }
   }
 }
 

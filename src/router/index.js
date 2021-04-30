@@ -9,7 +9,7 @@ import Lyric from "../pages/Lyric";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Setting from "../pages/Setting";
-import SongAlbum from "../pages/SongAlbum";
+import SingerAlbum from "../pages/SingerAlbum";
 import SongListAlbum from "../pages/SongListAlbum";
 
 Vue.use(Router)
@@ -67,9 +67,9 @@ export default new Router({
       component:Setting
     },
     {
-      path:'/song-album',
-      name:"SongAlbum",
-      component:SongAlbum
+      path:'/singer-album',
+      name:"SingerAlbum",
+      component:SingerAlbum
     },
     {
       path:'/song-list-album',

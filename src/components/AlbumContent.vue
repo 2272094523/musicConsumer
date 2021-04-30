@@ -13,7 +13,7 @@
           <span class="item-intro">专辑</span>
         </div>
       </li>
-      <li v-for="(item,index) in lists" :key="index">
+      <li v-for="(item,index) in this.selList" :key="index">
         <div class="song-item"
              @click="toPlay(item.songId,item.songUrl,item.songImg,index,item.songName,item.singer.singerName,item.songLyric)">
           <span class="item-index">{{index+1}}</span>
@@ -41,17 +41,11 @@
         flag: true,
       }
     },
-    props: ['list2'],
     mounted() {
-      this.$bus.$on('getList', msg => {
-        this.lists = msg;
-      })
-    },
-    created() {
-      this.lists = this.list2;
+
     },
     computed:{
-      ...mapGetters(['songOfList','id','isPlay','selList'])
+      ...mapGetters(['songOfList','id','isPlay','selList','collectSong','collectActive'])
     },
     methods:{
       toPlay:function(id,url,img,index,title,artist,lyric){
@@ -86,6 +80,15 @@
           tempList.push(type);
           this.$store.commit('setSongOfList',tempList);
         }
+        let collectFlag=false;
+        for (let item of this.collectSong){
+          if (item.songId==id){
+            this.$store.commit('setCollectActive',true);
+            collectFlag=true;
+            break;
+          }
+        }
+        if (collectFlag==false) this.$store.commit('setCollectActive',false);
       }
     }
 

@@ -4,7 +4,7 @@
       <span :class="{isActive : toggle=='Song'}" @click="handleChangView('Song')">歌曲</span>
       <span :class="{isActive : toggle=='SongList'}" @click="handleChangView('SongList')">歌单</span>
     </nav>
-    <component :is="currentView" :lists="lists"></component>
+    <component :is="currentView" ></component>
   </div>
 </template>
 <script>
@@ -21,7 +21,6 @@
       return {
         toggle: 'Song',
         currentView: 'searchSong',
-        lists: [],
       }
     },
     methods: {
@@ -30,9 +29,6 @@
         this.toggle = name;
       }
     },
-    created() {
-      this.lists=this.$route.query.list2;
-    }
   }
 </script>
 

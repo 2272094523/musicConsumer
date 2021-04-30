@@ -5,7 +5,21 @@ export const mixin = {
   methods: {
     //获取图片地址
     attachImageUrl(srcUrl) {
-      return srcUrl ? this.$store.state.configure.HOST + srcUrl : '../assets/img/user.jpg';
+      return  this.$store.state.configure.HOST + srcUrl;
+    },
+    getSingerSex(sex){
+      if (sex==0){
+        return "女";
+      }
+      if (sex==1){
+        return "男";
+      }
+      if (sex==2){
+        return "组合";
+      }
+    },
+    parseBirth(birth){
+      return birth.substr(0,10);
     },
     storeCommit(id, url, title, playButtonUrl, isPlay, listIndex, artist, imgUrl, lyric) {
       this.$store.commit('setId', id);

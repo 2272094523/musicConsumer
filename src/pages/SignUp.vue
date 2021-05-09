@@ -157,7 +157,6 @@
             this.$message({showClose: true, type: 'info', message: '请将信息补充完整'});
           }
         })
-
       },
       getEmailCode() {
         if (this.Form.email == '') {

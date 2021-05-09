@@ -11,6 +11,10 @@
     mixins:[mixin],
     data(){
       return{
+      }
+    },
+    methods:{
+      changeInformation(){
 
       }
     }
